@@ -164,7 +164,7 @@ class ServiceAccountCacheItemPool implements CacheItemPoolInterface
     public function save(CacheItemInterface $item)
     {
         try {
-            $this->cache->set(self::CACHE_PREFIX.$item->getKey(), $item,$this->ttl);
+            $this->cache->put(self::CACHE_PREFIX.$item->getKey(), $item,$this->ttl);
         } catch (InvalidArgumentException $e) {
             return false;
         }
